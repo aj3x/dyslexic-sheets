@@ -11,7 +11,6 @@ function fixDupeAttr(dupe, index) {
  * @param {number} index
  */
 const fixDuplicates = (other, index) => {
-  console.log(other);
   if (other.id) other.id = fixDupeAttr(other.id, index);
   let otherName = other.getAttribute("name");
   if (otherName) other.setAttribute("name", fixDupeAttr(otherName, index));
