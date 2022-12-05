@@ -1,0 +1,5 @@
+.field--control_proficiency__icon,
+.field--control_counter__icon {
+    cursor: pointer;
+    user-select: none;
+}
