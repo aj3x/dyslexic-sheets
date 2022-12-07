@@ -1,5 +1,3 @@
-
-
 //#region Setup
 //#region Bug Fixes
 //#region Bug Fix Functions
