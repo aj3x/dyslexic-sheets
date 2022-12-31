@@ -29,23 +29,31 @@ export default class DyslexicSettings {
             else
                 save_data[key] = fd.get(key);
         }
+
+
+        const checkboxes = document.querySelectorAll("input[type='checkbox']");
+        for (let checkbox of checkboxes) {
+            save_data[checkbox.name] = checkbox.checked;
+        }
         return save_data;
     }
     static setCharacterFormData(save_data) {
         const form = document.forms[0]
         const fd = new FormData(form);
-        
+
         for (let key of fd.keys()) {
             document.getElementsByName(key).forEach(element => {
                 const savedValue = save_data[key] || "";
                 if (savedValue && element.value !== savedValue) {
                     element.value = savedValue;
-                    if (savedValue === "on") {
-                        element.checked = true;
-                    }
                     element.dispatchEvent(new Event('change'))
                 }
             });
+        }
+        const checkboxes = document.querySelectorAll("input[type='checkbox']");
+        for (let checkbox of checkboxes) {
+            if (save_data[checkbox.name])
+                checkbox.checked = save_data[checkbox.name];
         }
     }
 
